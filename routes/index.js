@@ -9,5 +9,11 @@ router.get('/', function(req, res) {
 
 router.get('/quizes/question', quizController.question);
 router.get('/quizes/answer', quizController.answer);
+router.get('/author', function(req, res) {
+	res.render('author', {
+		autor: 'Cristóbal Medina Alemán'
+		, foto: 'http://www.psdgraphics.com/file/user-icon.jpg'
+	});
+});
 
 module.exports = router;

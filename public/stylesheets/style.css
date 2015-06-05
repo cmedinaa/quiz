@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+#author #foto {
+  	float: left;
+  	width: 14%;
+  	border: 1px solid black;
+  	text-align: center;
+  }
+
+#author #foto img {
+  	height: 120px;
+  	width: 100px;
+  }
+
+#author #nombre {
+    padding: 10px 0px 0px 10px;
+	float: left;
+	width: 84%;
+  }
+
+#author #video {
+  	border-top: 1px solid black;
+	clear: both;
+	text-align: center;
+  }
