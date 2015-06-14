@@ -6,7 +6,7 @@ body {
 
 #page-wrap:after {
 	content: "Smartphone layout";
-};
+}
 
 h2 span, section h3 {
 	display: none;
