@@ -15,25 +15,25 @@ exports.load = function(req, res, next, quizId) {
 };
 
 exports.index = function(req, res, next) {	
+	var criteria = {};
+
 	if (req.query.search) {
 		//buscar la pregunta y enviar al quizes index
 		var search =  req.query.search.toUpperCase().replace(/ /g, '%').trim();
 		search = '%' + search + '%';
-		models.Quiz.findAll({where: ["upper(pregunta) like ?", search]}).then(
-			function(quizes) {
-				if (quizes && quizes.length) {
-					res.render('quizes/index', {quizes: quizes});
-				}
-				else {
-					next(new Error('No hay preguntas con el texto "' + req.query.search + '"'));
-				}
+		criteria = {where: ["upper(pregunta) like ?", search]};
+	}
+
+	models.Quiz.findAll(criteria).then(
+		function(quizes) {
+			if (quizes && quizes.length) {
+				res.render('quizes/index', {quizes: quizes});
 			}
-		).catch(function(error) { next(error); });
-	}
-	else {
-		//mostrar el formulario de búsqueda
-		res.render('quizes/search');
-	}
+			else {
+				next(new Error('No hay preguntas con el texto "' + req.query.search + '"'));
+			}
+		}
+	).catch(function(error) { next(error); });
 };
 
 exports.show = function(req, res) {
