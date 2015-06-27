@@ -22,7 +22,10 @@ exports.index = function(req, res, next) {
 		//buscar la pregunta y enviar al quizes index
 		var search =  req.query.search.toUpperCase().replace(/ /g, '%').trim();
 		search = '%' + search + '%';
-		criteria = {where: ["upper(pregunta) like ?", search]};
+		criteria = {where: ["upper(pregunta) like ?", search] };
+	}
+	else {
+		criteria = {order: 'id'};
 	}
 
 	models.Quiz.findAll(criteria).then(
