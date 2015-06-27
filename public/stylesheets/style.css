@@ -30,3 +30,12 @@ a {
 	clear: both;
 	text-align: center;
   }
+
+  nav span {
+    margin: 0px 10px 0px 0px;
+  }
+
+  #ErrMsgs {
+    color: #f61;
+    font-size: smaler;
+  }

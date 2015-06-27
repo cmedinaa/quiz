@@ -4,7 +4,7 @@ var quizController = require('../controllers/quiz_controller.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz' });
+  res.render('index', { title: 'Quiz', errors: [] });
 });
 
 router.param('quizId', 						quizController.load);
@@ -18,6 +18,7 @@ router.get('/author', function(req, res) {
 	res.render('author', {
 		autor: 'Cristóbal Medina Alemán'
 		, foto: 'http://www.psdgraphics.com/file/user-icon.jpg'
+		, errors: []
 	});
 });
 

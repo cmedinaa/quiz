@@ -42,6 +42,7 @@ if (app.get('env') === 'development') {
         res.render('error', {
             message: err.message,
             error: err
+            , errors: []
         });
     });
 }
@@ -53,6 +54,7 @@ app.use(function(err, req, res, next) {
     res.render('error', {
         message: err.message,
         error: {}
+        , errors: []
     });
 });
 
